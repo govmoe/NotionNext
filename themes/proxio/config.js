@@ -70,19 +70,14 @@ const CONFIG = {
   // 生涯内容卡牌 ，title是标题 ，bio是备注，text是详情
   PROXIO_CAREERS: [
     {
-      title: 'Freelance Architect',
-      bio: '2016-2020',
-      text: 'As a freelance architect, I worked on a range of residential and commercial projects, balancing form and function. I collaborated with clients and contractors to transform concepts into reality, ensuring each design was both aesthetically pleasing and structurally sound.'
+      title: 'bilibili直播安全中心',
+      bio: '2024-2025',
+      text: '负责B站直播板块的实时内容监控与审核，确保直播内容符合国家法律法规及平台社区规范、对直播中的涉黄、涉暴、低俗、政治敏感等违规行为进行快速、准确的识别与处置（如警告、断流、封禁等）、处理用户关于直播内容的举报与投诉，并及时给予反馈，维护社区良好的直播环境、参与审核案例复盘，总结新型违规模式，为审核规则的优化提供建议，提升团队整体审核效率与准确性。'
     },
     {
-      title: 'Product Designer at Spotify',
-      bio: '2020-2022',
-      text: 'At Spotify, I helped shape innovative features for millions of users globally. My focus was on creating seamless music discovery experiences, enhancing user interfaces, and optimizing cross-platform navigation, which led to an improved product flow and increased user satisfaction.'
-    },
-    {
-      title: 'Freelance Product Designer',
-      bio: '2022-Now',
-      text: 'Now I design user-centric products that align with client visions. As a freelance product designer, I collaborate with startups and established companies, crafting solutions that elevate user experiences and increase engagement across both digital and physical interfaces.'
+      title: '百度贴吧',
+      bio: '2023-2024',
+      text: '负责百度贴吧特定吧的内容审核工作，对用户发布的帖子、图片、回复等进行多维度筛查、严格依据审核标准，处理广告、灌水、人身攻击、侵权等违规内容，维护贴吧讨论秩序、通过运营手段，识别并处理群体性违规事件（如爆吧、网络水军），保障核心用户的体验、收集并反馈审核中发现的共性问题和用户诉求，协助运营策略的调整与完善'
     }
   ],
 
