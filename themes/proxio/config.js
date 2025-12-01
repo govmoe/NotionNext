@@ -211,12 +211,6 @@ const CONFIG = {
           href: 'https://aethertalk.de'
         },
       ]
-    },
-    {
-      name: '开发者',
-      menus: [
-
-      ]
     }
   ],
 
