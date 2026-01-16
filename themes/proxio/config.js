@@ -2,7 +2,7 @@
  * 另一个落地页主题
  */
 const CONFIG = {
-  PROXIO_WELCOME_COVER_ENABLE: true, //是否显示页面进入的欢迎文字
+  PROXIO_WELCOME_COVER_ENABLE: false, //是否显示页面进入的欢迎文字
   PROXIO_WELCOME_TEXT: '欢迎来到此网站，点击任意位置进入', // 欢迎文字，留空则不启用
 
   // 英雄区块导航
@@ -69,6 +69,11 @@ const CONFIG = {
 
   // 生涯内容卡牌 ，title是标题 ，bio是备注，text是详情
   PROXIO_CAREERS: [
+        {
+      title: '金山软件WPS',
+      bio: '2025-至今',
+      text: '负责WPS文档内容安全审核。'
+    },
     {
       title: 'bilibili直播安全中心',
       bio: '2024-2025',
@@ -209,6 +214,10 @@ const CONFIG = {
         {
           title: 'AetherTalk',
           href: 'https://aethertalk.de'
+        },
+                {
+          title: 'EmoLive',
+          href: 'https://emolive.eu.org/beta/'
         },
       ]
     }
