@@ -181,7 +181,7 @@ const CONFIG = {
   PROXIO_ABOUT_TEXT_1: 'I am an Architect Turned Into a Product Designer',
   PROXIO_ABOUT_TEXT_2:
     'With a background in architecture, I now apply my expertise to product design, blending aesthetics, functionality, and innovation. My goal is to create modern, user-focused designs that bring your vision to life.',
-  PROXIO_ABOUT_PHOTO_URL: '/avatar.png',
+  PROXIO_ABOUT_PHOTO_URL: 'https://upload.aethertalk.de/file/Vc90s0Ze.webp',
   PROXIO_ABOUT_KEY_1: '经验年限',
   PROXIO_ABOUT_VAL_1: '10年+',
   PROXIO_ABOUT_KEY_2: '客户',
