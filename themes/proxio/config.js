@@ -209,7 +209,7 @@ const CONFIG = {
   // 页脚菜单
   PROXIO_FOOTER_LINKS: [
     {
-      name: '友情链接',
+      name: '项目',
       menus: [
         {
           title: 'AetherTalk',
