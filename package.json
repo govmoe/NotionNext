@@ -1,10 +1,11 @@
 {
   "name": "notion-next",
-  "version": "4.9.5.0",
+  "version": "4.9.5.1",
+  "packageManager": "yarn@1.22.22",
   "homepage": "https://github.com/tangly1024/NotionNext.git",
   "license": "MIT",
   "engines": {
-    "node": ">=20"
+    "node": ">=20 <25"
   },
   "repository": {
     "type": "git",
@@ -30,9 +31,11 @@
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "quality": "node scripts/quality-check.js",
-    "pre-commit": "npm run lint:fix && npm run format && npm run type-check",
+    "pre-commit": "yarn lint:fix && yarn format && yarn type-check",
     "dev-tools": "node scripts/dev-tools.js",
     "init-dev": "node scripts/dev-tools.js init",
+    "deps:install": "yarn install --frozen-lockfile",
+    "deps:check-lockfile": "yarn install --frozen-lockfile && git diff --exit-code yarn.lock",
     "clean": "node scripts/dev-tools.js clean",
     "docs": "node scripts/dev-tools.js docs",
     "check-updates": "node scripts/dev-tools.js check-updates",
@@ -44,7 +47,7 @@
     "test:coverage": "jest --coverage",
     "test:ci": "jest --ci --coverage --watchAll=false",
     "health-check": "node scripts/health-check.js",
-    "validate": "npm run health-check",
+    "validate": "yarn health-check",
     "final-validation": "node scripts/final-validation.js",
     "postinstall": "patch-package"
   },
@@ -73,6 +76,7 @@
     "react-hotkeys-hook": "^4.6.2",
     "react-notion-x": "7.10.0",
     "react-share": "^5.2.2",
+    "@supabase/supabase-js": "^2.57.4",
     "react-tweet-embed": "~2.0.0"
   },
   "devDependencies": {
