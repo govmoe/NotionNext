@@ -5,12 +5,31 @@ import { handleEmailClick } from '@/lib/plugins/mailEncrypt'
 import { useGlobal } from '@/lib/global'
 import SmartLink from '@/components/SmartLink'
 import { EndspacePlayer } from './EndspacePlayer'
-import NotionMenuIcon from './NotionMenuIcon'
+import { buildMenuItems, isMenuItemActive } from './menu'
 import {
-  IconBrandX
+  IconBrandGithub,
+  IconBrandTwitter,
+  IconBrandWeibo,
+  IconBrandBilibili,
+  IconBrandTelegram,
+  IconBrandInstagram,
+  IconBrandYoutube,
+  IconBrandLinkedin,
+  IconBrandWechat,
+  IconBrandX,
+  IconPlanet
 } from '@tabler/icons-react'
 import RadarFillIcon from 'remixicon-react/RadarFillIcon'
-import { getEndspaceActiveMenuName, getEndspaceMenuItems } from './menu'
+import MailSendFillIcon from 'remixicon-react/MailSendFillIcon'
+// Conceptual Navigation Icons (Solid, Angular)
+import AppsFillIcon from 'remixicon-react/AppsFillIcon'
+import FolderFillIcon from 'remixicon-react/FolderFillIcon'
+import BookMarkFillIcon from 'remixicon-react/BookMarkFillIcon'
+import BarcodeFillIcon from 'remixicon-react/BarcodeFillIcon'
+import StackFillIcon from 'remixicon-react/StackFillIcon'
+import Compass3FillIcon from 'remixicon-react/Compass3FillIcon'
+import EarthFillIcon from 'remixicon-react/EarthFillIcon'
+import ProfileFillIcon from 'remixicon-react/ProfileFillIcon'
 
   // Social Icons (Solid)
 import GithubFillIcon from 'remixicon-react/GithubFillIcon'
@@ -23,6 +42,17 @@ import LinkedinBoxFillIcon from 'remixicon-react/LinkedinBoxFillIcon'
 import WechatFillIcon from 'remixicon-react/WechatFillIcon'
 import GlobeFillIcon from 'remixicon-react/GlobeFillIcon'
 import MailFillIcon from 'remixicon-react/MailFillIcon'
+
+// Icon mapping (Conceptual Remix Icons)
+const IconComponents = {
+  'Home': AppsFillIcon,
+  'Category': FolderFillIcon,
+  'Tag': BarcodeFillIcon,
+  'Archive': StackFillIcon,
+  'Search': Compass3FillIcon,
+  'Friends': EarthFillIcon,
+  'Portfolio': ProfileFillIcon
+}
 
 // Social icon mapping
 const SocialIconComponents = {
@@ -53,8 +83,8 @@ export const SideNav = (props) => {
   const avatarUrl = props?.siteInfo?.icon || siteInfo?.icon || siteConfig('AVATAR')
 
   const menuItems = useMemo(
-    () => getEndspaceMenuItems({ customNav, customMenu }),
-    [customMenu, customNav]
+    () => buildMenuItems({ customNav, customMenu }),
+    [customNav, customMenu]
   )
 
   // Social icon config - using contact.config.js settings
@@ -93,7 +123,12 @@ export const SideNav = (props) => {
   }
 
   useEffect(() => {
-    setActiveTab(getEndspaceActiveMenuName(menuItems, router.asPath))
+    // Set active tab based on path
+    const path = router.asPath
+    const activeItem = menuItems.find(item => isMenuItemActive(item, path))
+    const newTab = activeItem?.name || 'Home'
+    
+    setActiveTab(newTab)
   }, [router.asPath, menuItems])
 
   // Update indicator position when activeTab changes
@@ -115,14 +150,14 @@ export const SideNav = (props) => {
   }, [activeTab])
 
   // Render icon component
-  const renderIcon = (item, isActive) => {
-    const icon = item.pageIcon || item.customIcon || ''
+  const renderIcon = (name, isActive) => {
+    const IconComponent = IconComponents[name] || BookMarkFillIcon
     return (
-      <span
-        className={`inline-flex h-5 w-5 items-center justify-center transition-all duration-300 ${isActive ? 'scale-110' : ''}`}
-      >
-        <NotionMenuIcon icon={icon} active={isActive} />
-      </span>
+      <IconComponent 
+        size={20} 
+        stroke={1.5}
+        className={`transition-all duration-300 ${isActive ? 'scale-110' : ''}`}
+      />
     )
   }
 
@@ -179,24 +214,58 @@ export const SideNav = (props) => {
         />
         
         {menuItems.map((item) => {
+          const hasSubMenu = item.subMenus?.length > 0
           const isActive = activeTab === item.name
           return (
-            <SmartLink key={item.id || item.name} href={item.path}>
+            <div
+              key={`${item.name}-${item.path}`}
+              className='group/menu relative'
+            >
+              <SmartLink href={item.path} target={item.target}>
               <div 
                 ref={el => itemRefs.current[item.name] = el}
                 className={`nier-nav-item relative h-[3rem] flex items-center cursor-pointer group transition-colors duration-300 hover:bg-[#d4d4d8] ${isActive ? 'active bg-[#d4d4d8]' : ''}`}
               >
                 {/* Icon Container */}
-                <div className="endspace-menu-icon-wrap w-[5rem] flex-shrink-0 flex items-center justify-center z-10">
-                  {renderIcon(item, isActive)}
+                <div className="w-[5rem] flex-shrink-0 flex items-center justify-center z-10">
+                  {item.icon ? <i className={item.icon} /> : renderIcon(item.name, isActive)}
                 </div>
 
                 {/* Text Label (Reveal on Hover) */}
                 <span className={`text-sm font-medium tracking-wide uppercase whitespace-nowrap transition-opacity duration-300 z-10 ${isHovered ? 'opacity-100 delay-75' : 'opacity-0 w-0'}`}>
                   {item.name.toUpperCase()}
                 </span>
+                {hasSubMenu && (
+                  <span className={`ml-auto pr-4 text-xs transition-opacity duration-300 ${isHovered ? 'opacity-100' : 'opacity-0'}`}>
+                    &rsaquo;
+                  </span>
+                )}
               </div>
-            </SmartLink>
+              </SmartLink>
+              {hasSubMenu && (
+                <div
+                  className={`grid overflow-hidden transition-all duration-300 ${isHovered ? 'grid-rows-[0fr] opacity-0 group-hover/menu:grid-rows-[1fr] group-hover/menu:opacity-100' : 'grid-rows-[0fr] opacity-0'}`}
+                >
+                  <div className='min-h-0 py-1'>
+                    {item.subMenus.map(subMenu => (
+                      <SmartLink
+                        key={`${subMenu.name}-${subMenu.path}`}
+                        href={subMenu.path}
+                        target={subMenu.target || item.target}
+                        className='flex h-10 items-center text-sm font-medium text-[var(--endspace-text-secondary)] transition-colors hover:bg-[#d4d4d8] hover:text-black'
+                      >
+                        <span className='flex w-[5rem] flex-shrink-0 items-center justify-center text-xs'>
+                          {subMenu.icon ? <i className={subMenu.icon} /> : renderIcon(subMenu.name, false)}
+                        </span>
+                        <span className='min-w-0 flex-1 truncate pr-4 text-xs uppercase tracking-wide'>
+                          {subMenu.name}
+                        </span>
+                      </SmartLink>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
           )
         })}
       </div>
@@ -204,57 +273,54 @@ export const SideNav = (props) => {
       {/* BOTTOM SECTION - Tools & Config */}
       {/* Music Player, Contact, and Toggle */}
       <div className="flex-shrink-0 flex flex-col justify-end h-auto pb-4">
-        <div className={`mx-auto transition-[width] duration-300 ease-out ${isHovered ? 'w-[13.5rem]' : 'w-[3rem]'}`}>
-          <div className={`overflow-visible border border-gray-200 bg-gray-100/95 shadow-sm transition-[border-radius] duration-200 ${isHovered ? 'h-[7rem] rounded-2xl px-3 py-2' : 'h-[6.75rem] rounded-full px-1 py-2'}`}>
-            {/* Music Player Section */}
-            <div className={`flex items-center justify-center ${isHovered ? 'h-[3rem]' : 'h-10'}`}>
-              <EndspacePlayer isExpanded={isHovered} embedded />
+        
+        {/* Music Player Section */}
+        <EndspacePlayer isExpanded={isHovered} />
+
+        {/* Contact Links Section */}
+        <div className="py-3 transition-all duration-300">
+          
+          {/* Collapsed State: Contact Button with light gray background */}
+          <div className={`flex justify-center transition-all duration-300 ${isHovered ? 'opacity-0 h-0 overflow-hidden' : 'opacity-100'}`}>
+            <div className="w-[2.5rem] h-[2.5rem] flex items-center justify-center bg-gray-200 text-gray-500 rounded-full cursor-pointer hover:text-white hover:bg-gray-600 transition-colors">
+              <RadarFillIcon size={18} />
             </div>
+          </div>
 
-            <div className={`mx-auto h-px bg-gray-300/80 transition-[width] duration-300 ease-out ${isHovered ? 'my-1.5 w-full' : 'my-2 w-5'}`} />
-
-            {/* Contact Links Section */}
-            <div className="flex h-10 items-center justify-center overflow-hidden">
-              {/* Collapsed State: Contact Button */}
-              <div className={`flex justify-center transition-opacity duration-150 ${isHovered ? 'pointer-events-none absolute opacity-0' : 'opacity-100'}`}>
-                <div className="w-10 h-10 flex items-center justify-center text-gray-500 rounded-full cursor-pointer hover:text-black hover:bg-gray-200 transition-colors">
-                  <RadarFillIcon size={18} />
-                </div>
-              </div>
-
-              {/* Expanded State: Horizontal Icon Row */}
-              <div className={`transition-opacity duration-150 ${isHovered ? 'opacity-100' : 'pointer-events-none absolute opacity-0'}`}>
-                <div className="mx-auto flex w-full items-center justify-center gap-1.5 flex-nowrap px-1">
-                  {CONTACT_EMAIL && (
-                    <a
-                      onClick={e =>
-                        handleEmailClick(e, emailIcon, CONTACT_EMAIL)
-                      }
-                      title='email'
-                      className='w-[1.75rem] h-[1.75rem] flex cursor-pointer items-center justify-center rounded-full text-gray-500 transition-colors hover:bg-gray-200 hover:text-black flex-shrink-0'
-                      ref={emailIcon}>
-                      <MailFillIcon size={14} />
-                    </a>
-                  )}
-
-                  {socialLinks.map(({ key, svg, label }) => {
-                    const url = siteConfig(key)
-                    if (!url) return null
-                    return (
-                      <a
-                        key={key}
-                        href={url}
-                        target="_blank"
-                        rel="noreferrer"
-                        title={label}
-                        className="w-[1.75rem] h-[1.75rem] flex items-center justify-center text-gray-500 rounded-full hover:text-black hover:bg-gray-200 transition-colors flex-shrink-0"
-                      >
-                        {renderSocialIcon(key, svg, label)}
-                      </a>
-                    )
-                  })}
-                </div>
-              </div>
+          {/* Expanded State: Horizontal Icon Row - Single line */}
+          <div className={`px-3 transition-all duration-300 ${isHovered ? 'opacity-100' : 'opacity-0 h-0 overflow-hidden'}`}>
+              {/* Social Icons - Horizontal Layout, single row with light gray background */}
+              <div className="flex items-center justify-center gap-1.5 flex-nowrap">
+                {/* Email Icon */}
+                {CONTACT_EMAIL && (
+                  <a
+                    onClick={e =>
+                      handleEmailClick(e, emailIcon, CONTACT_EMAIL)
+                    }
+                    title='email'
+                    className='w-[1.75rem] h-[1.75rem] flex cursor-pointer items-center justify-center rounded-full bg-gray-200 text-gray-500 transition-colors hover:bg-gray-600 hover:text-white flex-shrink-0'
+                    ref={emailIcon}>
+                    <MailFillIcon size={14} />
+                  </a>
+                )}
+              
+              {/* Social Links */}
+              {socialLinks.map(({ key, svg, label }) => {
+                const url = siteConfig(key)
+                if (!url) return null
+                return (
+                  <a 
+                    key={key}
+                    href={url} 
+                    target="_blank" 
+                    rel="noreferrer"
+                    title={label}
+                    className="w-[1.75rem] h-[1.75rem] flex items-center justify-center bg-gray-200 text-gray-500 rounded-full hover:text-white hover:bg-gray-600 transition-colors flex-shrink-0"
+                  >
+                    {renderSocialIcon(key, svg, label)}
+                  </a>
+                )
+              })}
             </div>
           </div>
         </div>
