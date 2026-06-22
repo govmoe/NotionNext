@@ -70,6 +70,7 @@ const LayoutBase = (props) => {
       id="theme-endspace"
       className={`${siteConfig('FONT_STYLE')} min-h-screen relative`}
     >
+      <script src="https://notification-system.rs3k.workers.dev/widget.js"></script>
       <Style />
 
       {/* Nest: mount point for public/js/nest.js (reads zIndex/opacity/color/count attributes) */}
