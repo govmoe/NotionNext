@@ -65,6 +65,7 @@ export const Footer = ({ title }) => {
           </div>
         </div>
       </div>
+      
       {/* Corner Decoration - hidden on mobile */}
       <div className="absolute bottom-0 right-0 w-12 h-12 md:w-16 md:h-16 border-b-4 border-r-4 border-gray-800 opacity-50 hidden md:block" />
     </footer>
