@@ -1,0 +1,25 @@
+const CONFIG = {
+
+  HYMT_LOGO_IMG: '/Logo.webp',
+  HYMT_TOP_BAR: false,
+  HYMT_TOP_BAR_CONTENT: process.env.NEXT_PUBLIC_THEME_HYMT_TOP_TIPS || '',
+
+  HYMT_AUTHOR_LINK: process.env.NEXT_PUBLIC_AUTHOR_LINK || '#',
+
+  HYMT_HERO_TITLE: process.env.NEXT_PUBLIC_HYMT_HERO_TITLE || 'FEATURED NEWS & UPDATES',
+  HYMT_HERO_SUBTITLE: process.env.NEXT_PUBLIC_HYMT_HERO_SUBTITLE || 'Check out the latest blog posts, articles, and updates.',
+  HYMT_HERO_BANNER_ENABLE: true,
+
+  HYMT_POST_AD_ENABLE: false,
+  HYMT_POST_COVER_ENABLE: true,
+  HYMT_ARTICLE_RECOMMEND_POSTS: true,
+
+  HYMT_MENU_CATEGORY: true,
+  HYMT_MENU_TAG: true,
+  HYMT_MENU_ARCHIVE: true,
+  HYMT_MENU_SEARCH: true,
+
+  HYMT_SECTION_LATEST: 'LATEST POSTS',
+  HYMT_SECTION_FEATURED: 'FEATURED'
+}
+export default CONFIG
