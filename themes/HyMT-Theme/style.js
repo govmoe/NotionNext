@@ -121,7 +121,9 @@ const Style = () => {
       color: #c6d4df !important;
     }
 
-    #theme-hymt #notion-article img {
+    #theme-hymt     #theme-hymt #notion-article img {
+      max-width: 100% !important;
+      height: auto !important;
       border-radius: 4px;
     }
 
