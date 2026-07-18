@@ -121,10 +121,22 @@ const Style = () => {
       color: #c6d4df !important;
     }
 
-    #theme-hymt     #theme-hymt #notion-article img {
-      max-width: 100% !important;
+    #theme-hymt     /* ===== 图片响应式 ===== */
+    #theme-hymt #notion-article img,
+    #theme-hymt #notion-article .notion-image img,
+    #theme-hymt #notion-article figure img,
+    #theme-hymt #notion-article .notion-asset-wrapper img {
+      max-width: min(100%, 800px) !important;
       height: auto !important;
+      display: block;
+      margin: 1.5em auto;
       border-radius: 4px;
+    }
+
+    #theme-hymt #notion-article .notion-image,
+    #theme-hymt #notion-article figure,
+    #theme-hymt #notion-article .notion-asset-wrapper {
+      max-width: 100% !important;
     }
 
     /* ===== 导航链接 hover 效果 ===== */
