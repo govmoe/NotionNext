@@ -63,10 +63,13 @@ const LayoutBase = props => {
             <div className='flex-1 mx-auto w-full'>
               <Transition
                 show={!onLoading}
-                appear={true}
                 enter='transition ease-out duration-400 transform'
                 enterFrom='opacity-0 translate-y-4'
-                enterTo='opacity-100 translate-y-0'>
+                enterTo='opacity-100 translate-y-0'
+                leave='transition ease-in-out duration-300 transform'
+                leaveFrom='opacity-100 translate-y-0'
+                leaveTo='opacity-0 -translate-y-4'
+                unmount={false}>
                 {slotTop}
                 {children}
               </Transition>
