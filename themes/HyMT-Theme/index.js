@@ -9,27 +9,25 @@ import dynamic from 'next/dynamic'
 import SmartLink from '@/components/SmartLink'
 import { useRouter } from 'next/router'
 import { createContext, useContext, useEffect, useRef } from 'react'
+const AlgoliaSearchModal = dynamic(() => import('@/components/AlgoliaSearchModal'), { ssr: false })
+const Comment = dynamic(() => import('@/components/Comment'), { ssr: false })
 import CONFIG from './config'
 import { Style } from './style'
-
-const AlgoliaSearchModal = dynamic(() => import('@/components/AlgoliaSearchModal'), { ssr: false })
-
-const BlogListScroll = dynamic(() => import('./components/BlogListScroll'), { ssr: false })
-const BlogListPage = dynamic(() => import('./components/BlogListPage'), { ssr: false })
-const BlogArchiveItem = dynamic(() => import('./components/BlogArchiveItem'), { ssr: false })
-const ArticleLock = dynamic(() => import('./components/ArticleLock'), { ssr: false })
-const ArticleInfo = dynamic(() => import('./components/ArticleInfo'), { ssr: false })
-const Comment = dynamic(() => import('@/components/Comment'), { ssr: false })
-const ArticleAround = dynamic(() => import('./components/ArticleAround'), { ssr: false })
-const ShareBar = dynamic(() => import('./components/ShareBar'), { ssr: false })
-const HeroSection = dynamic(() => import('./components/HeroSection'), { ssr: false })
-const Header = dynamic(() => import('./components/Header'), { ssr: false })
-const NavBar = dynamic(() => import('./components/NavBar'), { ssr: false })
-const SideBar = dynamic(() => import('./components/SideBar'), { ssr: false })
-const JumpToTopButton = dynamic(() => import('./components/JumpToTopButton'), { ssr: false })
-const Footer = dynamic(() => import('./components/Footer'), { ssr: false })
-const SearchInput = dynamic(() => import('./components/SearchInput'), { ssr: false })
-const RecommendPosts = dynamic(() => import('./components/RecommendPosts'), { ssr: false })
+import BlogListScroll from './components/BlogListScroll'
+import BlogListPage from './components/BlogListPage'
+import BlogArchiveItem from './components/BlogArchiveItem'
+import ArticleLock from './components/ArticleLock'
+import ArticleInfo from './components/ArticleInfo'
+import ArticleAround from './components/ArticleAround'
+import ShareBar from './components/ShareBar'
+import HeroSection from './components/HeroSection'
+import Header from './components/Header'
+import NavBar from './components/NavBar'
+import SideBar from './components/SideBar'
+import JumpToTopButton from './components/JumpToTopButton'
+import Footer from './components/Footer'
+import SearchInput from './components/SearchInput'
+import RecommendPosts from './components/RecommendPosts'
 
 const ThemeGlobalHyMT = createContext()
 export const useHyMTGlobal = () => useContext(ThemeGlobalHyMT)
@@ -41,7 +39,6 @@ const LayoutBase = props => {
   const { children, slotTop } = props
   const { onLoading, fullWidth } = useGlobal()
   const searchModal = useRef(null)
-  const router = useRouter()
 
   const showSidebar = !fullWidth
 
