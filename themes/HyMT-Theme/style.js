@@ -33,8 +33,6 @@ const Style = () => {
     #theme-hymt #notion-article .notion-toggle,
     #theme-hymt #notion-article .notion-quote,
     #theme-hymt #notion-article .notion-callout,
-    #theme-hymt #notion-article .notion-bookmark,
-    #theme-hymt #notion-article .notion-bookmark-title,
     #theme-hymt #notion-article .notion-collection,
     #theme-hymt #notion-article .notion-collection-row,
     #theme-hymt #notion-article .notion-property,
@@ -56,8 +54,6 @@ const Style = () => {
     #theme-hymt #notion-article .notion-list-disc,
     #theme-hymt #notion-article .notion-list-numbered,
     #theme-hymt #notion-article .notion-toggle,
-    #theme-hymt #notion-article .notion-bookmark-description,
-    #theme-hymt #notion-article .notion-bookmark-link,
     #theme-hymt #notion-article .notion-collection-row-body,
     #theme-hymt #notion-article .notion-simple-table-cell {
       color: #b8bcbf !important;
@@ -70,8 +66,7 @@ const Style = () => {
     #theme-hymt #notion-article h5,
     #theme-hymt #notion-article h6,
     #theme-hymt #notion-article strong,
-    #theme-hymt #notion-article b,
-    #theme-hymt #notion-article .notion-bookmark-title {
+    #theme-hymt #notion-article b {
       color: #e5e5e5 !important;
     }
 
@@ -121,7 +116,45 @@ const Style = () => {
       color: #c6d4df !important;
     }
 
-    #theme-hymt     /* ===== 图片响应式 ===== */
+    /* ===== Notion 书签（Bookmark）暗色主题修复 ===== */
+    #theme-hymt #notion-article .notion-bookmark {
+      background: #1a1d24 !important;
+      border: 1px solid #373c44 !important;
+      border-radius: 4px;
+      color: inherit;
+    }
+
+    #theme-hymt #notion-article .notion-bookmark:hover {
+      border-color: #1a9fff !important;
+      background: #20242b !important;
+    }
+
+    #theme-hymt #notion-article .notion-bookmark a {
+      color: inherit !important;
+      text-decoration: none !important;
+    }
+
+    #theme-hymt #notion-article .notion-bookmark-title {
+      color: #e5e5e5 !important;
+    }
+
+    #theme-hymt #notion-article .notion-bookmark-description {
+      color: #8c8c8c !important;
+    }
+
+    #theme-hymt #notion-article .notion-bookmark-link {
+      color: #8c8c8c !important;
+    }
+
+    #theme-hymt #notion-article .notion-bookmark-link div {
+      color: #8c8c8c !important;
+    }
+
+    #theme-hymt #notion-article .notion-bookmark-link img {
+      filter: grayscale(1) brightness(0.7);
+    }
+
+    /* ===== 图片响应式 ===== */
     #theme-hymt #notion-article img,
     #theme-hymt #notion-article .notion-image img,
     #theme-hymt #notion-article figure img,
@@ -137,6 +170,11 @@ const Style = () => {
     #theme-hymt #notion-article figure,
     #theme-hymt #notion-article .notion-asset-wrapper {
       max-width: 100% !important;
+    }
+
+    #theme-hymt #notion-article .notion-bookmark-image img {
+      margin: 0 !important;
+      border-radius: 0 4px 4px 0 !important;
     }
 
     /* ===== 导航链接 hover 效果 ===== */
