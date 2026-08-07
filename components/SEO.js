@@ -372,7 +372,7 @@ const getSEOMeta = (props, router, locale) => {
       }
     case '/page/[page]':
       return {
-        title: `${page} | Page | ${siteInfo?.title}`,
+        title: `第${page}页 | ${siteInfo?.title}`,
         description: `${siteInfo?.description}`,
         image: `${siteInfo?.pageCover}`,
         slug: 'page/' + page,
@@ -388,7 +388,7 @@ const getSEOMeta = (props, router, locale) => {
       }
     case '/category/[category]/page/[page]':
       return {
-        title: `${category} | ${locale.COMMON.CATEGORY} | ${siteInfo?.title}`,
+        title: `第${page}页 | ${category} | ${locale.COMMON.CATEGORY} | ${siteInfo?.title}`,
         description: `${siteInfo?.description}`,
         slug: 'category/' + category,
         image: `${siteInfo?.pageCover}`,
@@ -397,7 +397,7 @@ const getSEOMeta = (props, router, locale) => {
     case '/tag/[tag]':
     case '/tag/[tag]/page/[page]':
       return {
-        title: `${tag} | ${locale.COMMON.TAGS} | ${siteInfo?.title}`,
+        title: `第${page}页 | ${tag} | ${locale.COMMON.TAGS} | ${siteInfo?.title}`,
         description: `${siteInfo?.description}`,
         image: `${siteInfo?.pageCover}`,
         slug: 'tag/' + tag,
@@ -414,7 +414,7 @@ const getSEOMeta = (props, router, locale) => {
     case '/search/[keyword]':
     case '/search/[keyword]/page/[page]':
       return {
-        title: `${keyword || ''}${keyword ? ' | ' : ''}${locale.NAV.SEARCH} | ${siteInfo?.title}`,
+        title: `${page ? `第${page}页 | ` : ''}${keyword || ''}${keyword ? ' | ' : ''}${locale.NAV.SEARCH} | ${siteInfo?.title}`,
         description: TITLE,
         image: `${siteInfo?.pageCover}`,
         slug: 'search/' + (keyword || ''),

@@ -1,15 +1,37 @@
 import { siteConfig } from '@/lib/config'
 import { useGlobal } from '@/lib/global'
 import SmartLink from '@/components/SmartLink'
+import { useRouter } from 'next/router'
 import Announcement from './Announcement'
 import Uptime from './Uptime'
 
 export default function SideBar(props) {
   const { categoryOptions, tagOptions, latestPosts, post, notice } = props
   const { locale } = useGlobal()
+  const router = useRouter()
+
+  const handleSearch = e => {
+    if (e.key === 'Enter' && e.target.value) {
+      const query = { keyword: e.target.value }
+      if (router.query.theme) query.theme = router.query.theme
+      router.push({ pathname: '/search/[keyword]', query })
+    }
+  }
 
   return (
     <div className='space-y-6'>
+      <div className='border-2 border-[#0284c7] rounded-sm shadow-[3px_3px_0px_0px_#0284c7] bg-[#ffffff] dark:bg-slate-800 p-4'>
+        <h3 className='font-black text-xs text-[#0284c7] uppercase tracking-wider mb-3 border-b-2 border-[#fde68a] pb-2'>
+          {locale.NAV.SEARCH}
+        </h3>
+        <input
+          type='text'
+          placeholder='Search...'
+          onKeyDown={handleSearch}
+          className='w-full border-[3px] border-[#0284c7] rounded-sm shadow-[2px_2px_0px_0px_#0284c7] px-3 py-2 font-extrabold text-sm outline-none bg-white dark:bg-slate-700 text-slate-900 dark:text-slate-100 placeholder:text-slate-400'
+        />
+      </div>
+
       {post?.toc && post?.toc.length > 2 && (
         <div className='border-2 border-[#0284c7] rounded-sm shadow-[3px_3px_0px_0px_#0284c7] bg-[#ffffff] dark:bg-slate-800 p-4'>
           <h3 className='font-black text-xs text-[#0284c7] uppercase tracking-wider mb-3 border-b-2 border-[#fde68a] pb-2'>
