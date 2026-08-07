@@ -164,7 +164,7 @@ const Style = () => {
         --claude-year-filter-text: var(--claude-gh-fg-muted);
         --claude-year-filter-text-active: #fff;
         --claude-activity-empty-color: var(--claude-gh-fg-muted);
-        --claude-gh-font-family: -apple-system, system-ui, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji';
+        --claude-gh-font-family: 'ClaudeCustomFont', -apple-system, system-ui, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji';
         --claude-timeline-line: rgba(209, 217, 224, 0.7);
         --claude-badge-bg: rgb(246, 248, 250);
         --claude-badge-border: rgb(255, 255, 255);
@@ -380,6 +380,7 @@ const Style = () => {
       #theme-claude {
         background-color: var(--claude-bg);
         color: var(--claude-text-primary);
+        font-family: 'ClaudeCustomFont', var(--claude-body-font);
       }
       .light #theme-claude.claude-page-subpage {
         background-color: var(--claude-subpage-bg-light);
@@ -426,7 +427,7 @@ const Style = () => {
         box-sizing: border-box;
         color: var(--claude-profile-name);
         display: block;
-        font-family: -apple-system, system-ui, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji';
+        font-family: 'ClaudeCustomFont', -apple-system, system-ui, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji';
         font-size: 24px;
         font-weight: 600;
         height: 30px;
@@ -444,7 +445,7 @@ const Style = () => {
         box-sizing: border-box;
         color: var(--claude-profile-name);
         display: block;
-        font-family: 'PingFang SC', -apple-system, system-ui, 'Hiragino Sans GB', 'Microsoft YaHei', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Segoe UI', 'Noto Sans SC', HarmonyOS_Regular, 'Helvetica Neue', Helvetica, 'Source Han Sans SC', Arial, sans-serif, 'Apple Color Emoji', 'Noto Sans CJK SC', 'Noto Sans SC';
+        font-family: 'ClaudeCustomFont', 'PingFang SC', -apple-system, system-ui, 'Hiragino Sans GB', 'Microsoft YaHei', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Segoe UI', 'Noto Sans SC', HarmonyOS_Regular, 'Helvetica Neue', Helvetica, 'Source Han Sans SC', Arial, sans-serif, 'Apple Color Emoji', 'Noto Sans CJK SC', 'Noto Sans SC';
         font-feature-settings: normal;
         font-size: 15px;
         font-variation-settings: normal;
@@ -473,7 +474,7 @@ const Style = () => {
         column-gap: 4px;
         display: flex;
         flex-direction: column;
-        font-family: -apple-system, system-ui, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji';
+        font-family: 'ClaudeCustomFont', -apple-system, system-ui, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji';
         font-size: 14px;
         font-weight: 400;
         height: auto;
