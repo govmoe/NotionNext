@@ -5,7 +5,8 @@ import Typewriter from './Typewriter'
 
 export default function HeroSection(props) {
   const heroBio = siteConfig('XUHOME_HERO_BIO', '', CONFIG) || siteConfig('BIO')
-  const heroTexts = siteConfig('XUHOME_HERO_TEXTS', [], CONFIG)
+  const heroTextsRaw = siteConfig('XUHOME_HERO_TEXTS', [], CONFIG)
+  const heroTexts = Array.isArray(heroTextsRaw) ? heroTextsRaw : typeof heroTextsRaw === 'string' ? heroTextsRaw.split('|').map(s => s.trim()).filter(Boolean) : []
   const heroTitle = siteConfig('XUHOME_HERO_TITLE', '', CONFIG) || siteConfig('TITLE')
   const ctaText = siteConfig('XUHOME_HERO_CTA_TEXT', '', CONFIG)
   const ctaLink = siteConfig('XUHOME_HERO_CTA_LINK', '/about', CONFIG)

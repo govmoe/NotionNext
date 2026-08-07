@@ -37,7 +37,7 @@ const LayoutBase = props => {
   const bgImage = siteConfig('XUHOME_BG_IMAGE', null, CONFIG)
 
   return (
-    <div id='theme-xuhome' className='min-h-screen bg-[rgba(250,248,245,0.3)] dark:bg-slate-900 text-slate-900 dark:text-slate-100 relative'>
+    <div id='theme-xuhome' className='min-h-screen flex flex-col bg-[rgba(250,248,245,0.3)] dark:bg-slate-900 text-slate-900 dark:text-slate-100 relative'>
       <Style />
 
       {bgImage && (
@@ -50,7 +50,7 @@ const LayoutBase = props => {
         }} />
       )}
 
-      <div className='relative z-10'>
+      <div className='relative z-10 flex flex-col flex-1'>
         <NavBar {...props} />
 
       <div className='max-w-6xl mx-auto px-4 md:px-6 pt-6 pb-4'>

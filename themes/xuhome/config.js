@@ -3,7 +3,7 @@ const CONFIG = {
   XUHOME_HERO_ENABLE: true,
   XUHOME_HERO_TITLE: process.env.NEXT_PUBLIC_XUHOME_HERO_TITLE || '晓蓝',
   XUHOME_HERO_BIO: process.env.NEXT_PUBLIC_XUHOME_HERO_BIO || 'Hi',
-  XUHOME_HERO_TEXTS: ['Hello.', 'Welcome.', 'Enjoy reading.'],
+  XUHOME_HERO_TEXTS: ['你好！Hello！', 'Welcome', 'Enjoy reading.'],
   XUHOME_HERO_TYPE_SPEED: 80,
   XUHOME_HERO_DELETE_SPEED: 40,
   XUHOME_HERO_TYPE_PAUSE: 2000,
