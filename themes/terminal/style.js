@@ -11,6 +11,11 @@ const Style = () => {
       font-display: swap;
     }
 
+    html, body {
+      background-color: #11111b !important;
+      color: #cdd6f4;
+    }
+
     #theme-terminal {
       font-family: 'TerminalFont', 'Cascadia Code', 'JetBrains Mono', 'Fira Code', 'Consolas', 'Microsoft YaHei', monospace;
       background-color: #11111b;
