@@ -37,20 +37,19 @@ const LayoutBase = props => {
   const bgImage = siteConfig('XUHOME_BG_IMAGE', null, CONFIG)
 
   return (
-    <div id='theme-xuhome' className='min-h-screen bg-[#ffffff] dark:bg-slate-900 text-slate-900 dark:text-slate-100'>
+    <div id='theme-xuhome' className='min-h-screen bg-[#faf8f5] dark:bg-slate-900 text-slate-900 dark:text-slate-100' style={bgImage ? {
+      backgroundImage: `url(${bgImage})`,
+      backgroundSize: 'cover',
+      backgroundPosition: 'center',
+      backgroundRepeat: 'no-repeat',
+      backgroundAttachment: 'fixed'
+    } : {}}>
       <Style />
 
-      {bgImage && (
-        <div className='fixed inset-0 z-0 pointer-events-none' style={{
-          backgroundImage: `url(${bgImage})`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat',
-          opacity: 0.25
-        }} />
-      )}
+      <div className='fixed inset-0 bg-[#faf8f5]/85 dark:bg-slate-900/85 z-0 pointer-events-none' />
 
-      <NavBar {...props} />
+      <div className='relative z-10'>
+        <NavBar {...props} />
 
       <div className='max-w-6xl mx-auto px-4 md:px-6 pt-6 pb-4'>
         <Header {...props} />
@@ -79,6 +78,7 @@ const LayoutBase = props => {
       </div>
 
       <AlgoliaSearchModal {...props} />
+      </div>
     </div>
   )
 }

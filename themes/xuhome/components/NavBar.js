@@ -3,21 +3,40 @@ import { useGlobal } from '@/lib/global'
 import SmartLink from '@/components/SmartLink'
 import { useRouter } from 'next/router'
 import CONFIG from '../config'
+import MenuItemDrop from './MenuItemDrop'
 
 export default function NavBar(props) {
-  const { categoryOptions, tagOptions } = props
+  const { categoryOptions, tagOptions, customNav, customMenu } = props
   const { locale } = useGlobal()
   const router = useRouter()
   const path = router.asPath?.split('?')[0] || '/'
 
-  const links = [
-    { href: '/', label: 'Home' },
-    { href: '/archive', label: 'Archive', show: siteConfig('XUHOME_MENU_ARCHIVE', true, CONFIG) },
-    { href: '/tag', label: 'Tags', show: siteConfig('XUHOME_MENU_TAG', true, CONFIG) && tagOptions?.length > 0 },
-    { href: '/search', label: 'Search', show: siteConfig('XUHOME_MENU_SEARCH', true, CONFIG) }
+  const defaultLinks = [
+    { id: 1, name: 'Home', href: '/', show: true },
+    { id: 2, name: locale.NAV.ARCHIVE || 'Archive', href: '/archive', show: siteConfig('XUHOME_MENU_ARCHIVE', true, CONFIG) },
+    { id: 3, name: locale.COMMON.TAGS || 'Tags', href: '/tag', show: siteConfig('XUHOME_MENU_TAG', true, CONFIG) && tagOptions?.length > 0 },
+    { id: 4, name: locale.NAV.SEARCH || 'Search', href: '/search', show: siteConfig('XUHOME_MENU_SEARCH', true, CONFIG) }
   ].filter(l => l.show !== false)
 
-  const active = href => href === '/' ? path === '/' : path.startsWith(href)
+  let links = defaultLinks
+  if (Array.isArray(customNav) && customNav.length > 0) {
+    links = links.concat(customNav.map((item, i) => ({ ...item, id: `nav-${i}` })))
+  }
+  if (siteConfig('CUSTOM_MENU') && Array.isArray(customMenu) && customMenu.length > 0) {
+    links = customMenu
+  }
+
+  const active = href => {
+    if (!href) return false
+    return href === '/' ? path === '/' : path.startsWith(href)
+  }
+
+  const linkActive = link => {
+    if (link.subMenus?.length > 0) {
+      return link.subMenus.some(sub => active(sub.href || sub.url))
+    }
+    return active(link.href || link.url)
+  }
 
   return (
     <header className='top-0 z-[100] bg-white dark:bg-slate-800 border-b-4 border-[#0284c7] px-4 py-2 shadow-[0px_4px_0px_0px_rgba(2,132,199,0.2)]'>
@@ -31,15 +50,7 @@ export default function NavBar(props) {
 
         <nav className='flex flex-wrap items-center gap-1.5'>
           {links.map(link => (
-            <SmartLink key={link.href} href={link.href} className='no-underline'>
-              <span className={`inline-block px-2.5 py-1 border-2 border-[#0284c7] rounded-sm font-black uppercase text-xs tracking-wider transition-all cursor-pointer select-none shadow-[2px_2px_0px_0px_#0284c7] active:translate-x-0.5 active:translate-y-0.5 active:shadow-none ${
-                active(link.href)
-                  ? 'bg-[#0ea5e9] text-white'
-                  : 'bg-[#ffffff] dark:bg-slate-700 text-[#0284c7] hover:bg-[#0ea5e9] hover:text-white'
-              }`}>
-                {link.label}
-              </span>
-            </SmartLink>
+            <MenuItemDrop key={link.id || link.name} link={link} />
           ))}
         </nav>
       </div>
