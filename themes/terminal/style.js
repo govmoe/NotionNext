@@ -13,6 +13,9 @@ const Style = () => {
 
     #theme-terminal {
       font-family: 'TerminalFont', 'Cascadia Code', 'JetBrains Mono', 'Fira Code', 'Consolas', 'Microsoft YaHei', monospace;
+      background-color: #11111b;
+      color: #cdd6f4;
+      min-height: 100vh;
     }
 
     #theme-terminal #article-wrapper,
