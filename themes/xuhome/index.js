@@ -37,7 +37,7 @@ const LayoutBase = props => {
   const bgImage = siteConfig('XUHOME_BG_IMAGE', null, CONFIG)
 
   return (
-    <div id='theme-xuhome' className='min-h-screen flex flex-col bg-[rgba(250,248,245,0.3)] dark:bg-slate-900 text-slate-900 dark:text-slate-100'>
+    <div id='theme-xuhome' className='min-h-screen bg-[rgba(250,248,245,0.3)] dark:bg-slate-900 text-slate-900 dark:text-slate-100'>
       <Style />
 
       {bgImage && (
@@ -50,14 +50,13 @@ const LayoutBase = props => {
         }} />
       )}
 
-      <div className='relative z-10 flex flex-col flex-1'>
-        <NavBar {...props} />
+      <NavBar {...props} />
 
       <div className='max-w-6xl mx-auto px-4 md:px-6 pt-6 pb-4'>
         <Header {...props} />
       </div>
 
-      <div className='flex-1 max-w-6xl mx-auto px-4 md:px-6'>
+      <div className='max-w-6xl mx-auto px-4 md:px-6' style={{ minHeight: 'calc(100vh - 200px)' }}>
         <div className='flex flex-col lg:flex-row gap-8'>
           <main className='flex-1 min-w-0 pb-16'>
             {children}
@@ -80,7 +79,6 @@ const LayoutBase = props => {
       </div>
 
       <AlgoliaSearchModal {...props} />
-      </div>
     </div>
   )
 }
