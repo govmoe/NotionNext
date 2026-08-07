@@ -11,7 +11,7 @@ export default function RecommendPosts({ recommendPosts }) {
       <div className='grid grid-cols-1 md:grid-cols-2 gap-3 mt-3'>
         {recommendPosts.map(post => (
           <SmartLink key={post.id} href={`/${post.slug}`} className='no-underline group'>
-            <div className='border-2 border-[#0284c7] rounded-sm shadow-[3px_3px_0px_0px_#0284c7] bg-[rgba(250,248,245,0.55)] dark:bg-slate-800 p-3 hover:-translate-y-0.5 hover:shadow-[4px_4px_0px_0px_#0284c7] active:translate-y-0 active:shadow-[1px_1px_0px_0px_#0284c7] transition-all'>
+            <div className='border-2 border-[#0284c7] rounded-sm shadow-[3px_3px_0px_0px_#0284c7] bg-[#faf8f5] dark:bg-slate-800 p-3 hover:-translate-y-0.5 hover:shadow-[4px_4px_0px_0px_#0284c7] active:translate-y-0 active:shadow-[1px_1px_0px_0px_#0284c7] transition-all'>
               <span className='text-sm font-extrabold text-slate-700 dark:text-slate-300 group-hover:text-[#0284c7] transition-colors line-clamp-2'>
                 {post.title}
               </span>

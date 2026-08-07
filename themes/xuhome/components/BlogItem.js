@@ -7,7 +7,7 @@ export default function BlogItem({ post }) {
   return (
     <article className='mb-6'>
       <SmartLink href={post?.href} className='no-underline block group'>
-        <div className='border-2 border-[#0284c7] rounded-sm shadow-[4px_4px_0px_0px_#0284c7] bg-[rgba(250,248,245,0.55)] dark:bg-slate-800 p-5 hover:-translate-y-0.5 hover:shadow-[6px_6px_0px_0px_#0284c7] active:translate-y-0 active:shadow-[2px_2px_0px_0px_#0284c7] transition-all'>
+        <div className='border-2 border-[#0284c7] rounded-sm shadow-[4px_4px_0px_0px_#0284c7] bg-[#faf8f5] dark:bg-slate-800 p-5 hover:-translate-y-0.5 hover:shadow-[6px_6px_0px_0px_#0284c7] active:translate-y-0 active:shadow-[2px_2px_0px_0px_#0284c7] transition-all'>
           <div className='text-xs font-black text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-2 font-mono'>
             {date?.slice(0, 10)}
           </div>

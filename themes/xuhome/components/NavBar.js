@@ -35,7 +35,7 @@ export default function NavBar(props) {
               <span className={`inline-block px-2.5 py-1 border-2 border-[#0284c7] rounded-sm font-black uppercase text-xs tracking-wider transition-all cursor-pointer select-none shadow-[2px_2px_0px_0px_#0284c7] active:translate-x-0.5 active:translate-y-0.5 active:shadow-none ${
                 active(link.href)
                   ? 'bg-[#0ea5e9] text-white'
-                  : 'bg-[rgba(250,248,245,0.55)] dark:bg-slate-700 text-[#0284c7] hover:bg-[#0ea5e9] hover:text-white'
+                  : 'bg-[#faf8f5] dark:bg-slate-700 text-[#0284c7] hover:bg-[#0ea5e9] hover:text-white'
               }`}>
                 {link.label}
               </span>

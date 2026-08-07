@@ -5,7 +5,17 @@ import CONFIG from './config'
 const Style = () => {
   return <style jsx global>{`
 
+    body {
+      background-color: #faf8f5;
+    }
     .dark body {
+      background-color: #0f172a;
+    }
+
+    #theme-xuhome {
+      background-color: #faf8f5;
+    }
+    .dark #theme-xuhome {
       background-color: #0f172a;
     }
 

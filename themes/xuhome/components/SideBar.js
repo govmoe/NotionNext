@@ -11,7 +11,7 @@ export default function SideBar(props) {
   return (
     <div className='space-y-6'>
       {post?.toc && post?.toc.length > 2 && (
-        <div className='border-2 border-[#0284c7] rounded-sm shadow-[3px_3px_0px_0px_#0284c7] bg-[rgba(250,248,245,0.55)] dark:bg-slate-800 p-4'>
+        <div className='border-2 border-[#0284c7] rounded-sm shadow-[3px_3px_0px_0px_#0284c7] bg-[#faf8f5] dark:bg-slate-800 p-4'>
           <h3 className='font-black text-xs text-[#0284c7] uppercase tracking-wider mb-3 border-b-2 border-[#fde68a] pb-2'>
             {locale.COMMON.TABLE_OF_CONTENTS}
           </h3>
@@ -27,7 +27,7 @@ export default function SideBar(props) {
       )}
 
       {categoryOptions?.length > 0 && (
-        <div className='border-2 border-[#0284c7] rounded-sm shadow-[3px_3px_0px_0px_#0284c7] bg-[rgba(250,248,245,0.55)] dark:bg-slate-800 p-4'>
+        <div className='border-2 border-[#0284c7] rounded-sm shadow-[3px_3px_0px_0px_#0284c7] bg-[#faf8f5] dark:bg-slate-800 p-4'>
           <h3 className='font-black text-xs text-[#0284c7] uppercase tracking-wider mb-3 border-b-2 border-[#fde68a] pb-2'>
             {locale.COMMON.CATEGORY}
           </h3>
@@ -45,14 +45,14 @@ export default function SideBar(props) {
       )}
 
       {tagOptions?.length > 0 && (
-        <div className='border-2 border-[#0284c7] rounded-sm shadow-[3px_3px_0px_0px_#0284c7] bg-[rgba(250,248,245,0.55)] dark:bg-slate-800 p-4'>
+        <div className='border-2 border-[#0284c7] rounded-sm shadow-[3px_3px_0px_0px_#0284c7] bg-[#faf8f5] dark:bg-slate-800 p-4'>
           <h3 className='font-black text-xs text-[#0284c7] uppercase tracking-wider mb-3 border-b-2 border-[#fde68a] pb-2'>
             {locale.COMMON.TAGS}
           </h3>
           <div className='flex flex-wrap gap-1.5'>
             {tagOptions.slice(0, 15).map(tag => (
               <SmartLink key={tag.name} href={`/tag/${encodeURIComponent(tag.name)}`}>
-                <span className='inline-block border-2 border-[#0284c7] rounded-sm shadow-[1px_1px_0px_0px_#0284c7] px-2 py-0.5 text-xs font-black uppercase tracking-wider text-[#0284c7] bg-[rgba(250,248,245,0.55)] dark:bg-slate-700 hover:bg-[#fde68a] transition-colors'>
+                <span className='inline-block border-2 border-[#0284c7] rounded-sm shadow-[1px_1px_0px_0px_#0284c7] px-2 py-0.5 text-xs font-black uppercase tracking-wider text-[#0284c7] bg-[#faf8f5] dark:bg-slate-700 hover:bg-[#fde68a] transition-colors'>
                   {tag.name}
                 </span>
               </SmartLink>
@@ -65,7 +65,7 @@ export default function SideBar(props) {
       <Uptime />
 
       {latestPosts?.length > 0 && (
-        <div className='border-2 border-[#0284c7] rounded-sm shadow-[3px_3px_0px_0px_#0284c7] bg-[rgba(250,248,245,0.55)] dark:bg-slate-800 p-4'>
+        <div className='border-2 border-[#0284c7] rounded-sm shadow-[3px_3px_0px_0px_#0284c7] bg-[#faf8f5] dark:bg-slate-800 p-4'>
           <h3 className='font-black text-xs text-[#0284c7] uppercase tracking-wider mb-3 border-b-2 border-[#fde68a] pb-2'>
             {locale.COMMON.LATEST_POSTS}
           </h3>

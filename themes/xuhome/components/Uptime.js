@@ -27,7 +27,7 @@ export default function Uptime() {
   if (!enabled || !since || !time) return null
 
   return (
-    <div className='border-2 border-[#0284c7] rounded-sm shadow-[3px_3px_0px_0px_#0284c7] bg-[rgba(250,248,245,0.55)] dark:bg-slate-800 p-4'>
+    <div className='border-2 border-[#0284c7] rounded-sm shadow-[3px_3px_0px_0px_#0284c7] bg-[#faf8f5] dark:bg-slate-800 p-4'>
       <h3 className='font-black text-xs text-[#0284c7] uppercase tracking-wider mb-3 border-b-2 border-[#fde68a] pb-2'>
         {title}
       </h3>

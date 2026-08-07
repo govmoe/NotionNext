@@ -1,7 +1,7 @@
 export default function ArticleLock({ validPassword }) {
   return (
     <div className='flex flex-col items-center py-20'>
-      <div className='border-2 border-[#0284c7] rounded-sm shadow-[4px_4px_0px_0px_#0284c7] bg-[rgba(250,248,245,0.55)] dark:bg-slate-800 p-8 max-w-sm w-full text-center'>
+      <div className='border-2 border-[#0284c7] rounded-sm shadow-[4px_4px_0px_0px_#0284c7] bg-[#faf8f5] dark:bg-slate-800 p-8 max-w-sm w-full text-center'>
         <div className='text-3xl mb-4'>{'\u{1F512}'}</div>
         <p className='font-black text-sm text-[#0284c7] uppercase tracking-wider mb-6'>Protected Post</p>
         <div className='flex gap-2'>

@@ -37,7 +37,7 @@ const LayoutBase = props => {
   const bgImage = siteConfig('XUHOME_BG_IMAGE', null, CONFIG)
 
   return (
-    <div id='theme-xuhome' className='min-h-screen bg-[rgba(250,248,245,0.3)] dark:bg-slate-900 text-slate-900 dark:text-slate-100'>
+    <div id='theme-xuhome' className='min-h-screen bg-[#faf8f5] dark:bg-slate-900 text-slate-900 dark:text-slate-100'>
       <Style />
 
       {bgImage && (
@@ -177,7 +177,7 @@ const LayoutSlug = props => {
 
           <ArticleInfo post={post} />
 
-          <div id='article-wrapper' className='border-2 border-[#0284c7] rounded-sm shadow-[4px_4px_0px_0px_#0284c7] bg-[rgba(250,248,245,0.55)] dark:bg-slate-800 p-6 md:p-10 mt-6'>
+          <div id='article-wrapper' className='border-2 border-[#0284c7] rounded-sm shadow-[4px_4px_0px_0px_#0284c7] bg-[#faf8f5] dark:bg-slate-800 p-6 md:p-10 mt-6'>
             <NotionPage post={post} />
           </div>
 
@@ -224,7 +224,7 @@ const Layout404 = props => {
     <div className='flex items-center justify-center min-h-[50vh] py-20'>
       <div className='text-center'>
         <div className='text-8xl font-black text-[#0284c7] mb-4' style={{ textShadow: '4px 4px 0 #fde68a' }}>404</div>
-        <div className='border-2 border-[#0284c7] rounded-sm shadow-[2px_2px_0px_0px_#0284c7] bg-[rgba(250,248,245,0.55)] dark:bg-slate-800 px-6 py-3 inline-block'>
+        <div className='border-2 border-[#0284c7] rounded-sm shadow-[2px_2px_0px_0px_#0284c7] bg-[#faf8f5] dark:bg-slate-800 px-6 py-3 inline-block'>
           <span className='font-black uppercase tracking-wider text-sm text-[#0284c7]'>Page not found</span>
         </div>
       </div>
@@ -239,7 +239,7 @@ const LayoutCategoryIndex = props => {
     <div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
       {categoryOptions?.map(category => (
         <SmartLink key={category.name} href={`/category/${category.name}`} passHref legacyBehavior>
-          <div className='border-2 border-[#0284c7] rounded-sm shadow-[4px_4px_0px_0px_#0284c7] bg-[rgba(250,248,245,0.55)] dark:bg-slate-800 p-5 hover:-translate-y-0.5 hover:shadow-[6px_6px_0px_0px_#0284c7] transition-all cursor-pointer group'>
+          <div className='border-2 border-[#0284c7] rounded-sm shadow-[4px_4px_0px_0px_#0284c7] bg-[#faf8f5] dark:bg-slate-800 p-5 hover:-translate-y-0.5 hover:shadow-[6px_6px_0px_0px_#0284c7] transition-all cursor-pointer group'>
             <div className='font-black text-lg text-[#0284c7] group-hover:text-[#0ea5e9] transition-colors uppercase tracking-wider'>
               {category.name}
             </div>
@@ -260,7 +260,7 @@ const LayoutTagIndex = props => {
     <div className='flex flex-wrap gap-3'>
       {tagOptions.map(tag => (
         <SmartLink key={tag.name} href={`/tag/${encodeURIComponent(tag.name)}`} passHref>
-          <span className='inline-flex items-center border-2 border-[#0284c7] rounded-sm shadow-[2px_2px_0px_0px_#0284c7] bg-[rgba(250,248,245,0.55)] dark:bg-slate-800 hover:bg-[#fde68a] px-4 py-2 font-black text-sm text-[#0284c7] uppercase tracking-wider transition-all cursor-pointer active:translate-x-0.5 active:translate-y-0.5 active:shadow-none'>
+          <span className='inline-flex items-center border-2 border-[#0284c7] rounded-sm shadow-[2px_2px_0px_0px_#0284c7] bg-[#faf8f5] dark:bg-slate-800 hover:bg-[#fde68a] px-4 py-2 font-black text-sm text-[#0284c7] uppercase tracking-wider transition-all cursor-pointer active:translate-x-0.5 active:translate-y-0.5 active:shadow-none'>
             {tag.name}
             {tag.count ? <span className='ml-2 text-xs opacity-70'>{tag.count}</span> : ''}
           </span>
