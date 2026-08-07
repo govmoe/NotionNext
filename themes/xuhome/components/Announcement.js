@@ -6,8 +6,8 @@ export default function Announcement({ post }) {
   if (!post || Object.keys(post).length === 0) return null
 
   return (
-    <div className='border-2 border-[#0284c7] rounded-sm shadow-[3px_3px_0px_0px_#0284c7] bg-[#faf8f5] dark:bg-slate-800 p-4'>
-      <div className='font-black text-xs text-[#0284c7] uppercase tracking-wider mb-3 pb-2 border-b-2 border-[#fde68a]'>
+    <div className='border-2 border-[#1e3a8a] rounded-sm shadow-[3px_3px_0px_0px_#1e3a8a] bg-[#ffffff] dark:bg-slate-800 p-4'>
+      <div className='font-black text-xs text-[#1e3a8a] uppercase tracking-wider mb-3 pb-2 border-b-2 border-[#fde68a]'>
         {'\uD83D\uDCE2'} Announcement
       </div>
       <div id='announcement-content' className='text-sm leading-relaxed'>

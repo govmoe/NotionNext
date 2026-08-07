@@ -16,7 +16,7 @@ export default function SearchInput(props) {
           router.push({ pathname: '/search/[keyword]', query })
         }
       }}
-      className='w-full border-[3px] border-[#0284c7] rounded-sm shadow-[2px_2px_0px_0px_#0284c7] px-4 py-3 font-extrabold text-base outline-none bg-white dark:bg-slate-700 text-slate-900 dark:text-slate-100 placeholder:text-slate-400 focus:shadow-[4px_4px_0px_0px_#0284c7] transition-shadow'
+      className='w-full border-[3px] border-[#1e3a8a] rounded-sm shadow-[2px_2px_0px_0px_#1e3a8a] px-4 py-3 font-extrabold text-base outline-none bg-white dark:bg-slate-700 text-slate-900 dark:text-slate-100 placeholder:text-slate-400 focus:shadow-[4px_4px_0px_0px_#1e3a8a] transition-shadow'
     />
   )
 }

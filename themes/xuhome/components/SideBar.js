@@ -11,13 +11,13 @@ export default function SideBar(props) {
   return (
     <div className='space-y-6'>
       {post?.toc && post?.toc.length > 2 && (
-        <div className='border-2 border-[#0284c7] rounded-sm shadow-[3px_3px_0px_0px_#0284c7] bg-[#faf8f5] dark:bg-slate-800 p-4'>
-          <h3 className='font-black text-xs text-[#0284c7] uppercase tracking-wider mb-3 border-b-2 border-[#fde68a] pb-2'>
+        <div className='border-2 border-[#1e3a8a] rounded-sm shadow-[3px_3px_0px_0px_#1e3a8a] bg-[#ffffff] dark:bg-slate-800 p-4'>
+          <h3 className='font-black text-xs text-[#1e3a8a] uppercase tracking-wider mb-3 border-b-2 border-[#fde68a] pb-2'>
             {locale.COMMON.TABLE_OF_CONTENTS}
           </h3>
           <nav className='space-y-1'>
             {post.toc.map(item => (
-              <a key={item.id} href={`#${item.id}`} className='block text-xs font-semibold text-slate-600 dark:text-slate-400 hover:text-[#0284c7] py-0.5'
+              <a key={item.id} href={`#${item.id}`} className='block text-xs font-semibold text-slate-600 dark:text-slate-400 hover:text-[#1e3a8a] py-0.5'
                 style={{ paddingLeft: `${(item.indentLevel || 0) * 12 + 4}px` }}>
                 {item.text}
               </a>
@@ -27,14 +27,14 @@ export default function SideBar(props) {
       )}
 
       {categoryOptions?.length > 0 && (
-        <div className='border-2 border-[#0284c7] rounded-sm shadow-[3px_3px_0px_0px_#0284c7] bg-[#faf8f5] dark:bg-slate-800 p-4'>
-          <h3 className='font-black text-xs text-[#0284c7] uppercase tracking-wider mb-3 border-b-2 border-[#fde68a] pb-2'>
+        <div className='border-2 border-[#1e3a8a] rounded-sm shadow-[3px_3px_0px_0px_#1e3a8a] bg-[#ffffff] dark:bg-slate-800 p-4'>
+          <h3 className='font-black text-xs text-[#1e3a8a] uppercase tracking-wider mb-3 border-b-2 border-[#fde68a] pb-2'>
             {locale.COMMON.CATEGORY}
           </h3>
           <div className='space-y-1'>
             {categoryOptions.map(cat => (
               <SmartLink key={cat.name} href={`/category/${cat.name}`} className='no-underline'>
-                <div className='flex justify-between text-xs font-extrabold text-slate-600 dark:text-slate-400 hover:text-[#0284c7] py-1.5 px-1 border-l-[3px] border-transparent hover:border-[#fde68a] transition-all'>
+                <div className='flex justify-between text-xs font-extrabold text-slate-600 dark:text-slate-400 hover:text-[#1e3a8a] py-1.5 px-1 border-l-[3px] border-transparent hover:border-[#fde68a] transition-all'>
                   <span>{cat.name}</span>
                   <span className='tabular-nums'>{cat.count}</span>
                 </div>
@@ -45,14 +45,14 @@ export default function SideBar(props) {
       )}
 
       {tagOptions?.length > 0 && (
-        <div className='border-2 border-[#0284c7] rounded-sm shadow-[3px_3px_0px_0px_#0284c7] bg-[#faf8f5] dark:bg-slate-800 p-4'>
-          <h3 className='font-black text-xs text-[#0284c7] uppercase tracking-wider mb-3 border-b-2 border-[#fde68a] pb-2'>
+        <div className='border-2 border-[#1e3a8a] rounded-sm shadow-[3px_3px_0px_0px_#1e3a8a] bg-[#ffffff] dark:bg-slate-800 p-4'>
+          <h3 className='font-black text-xs text-[#1e3a8a] uppercase tracking-wider mb-3 border-b-2 border-[#fde68a] pb-2'>
             {locale.COMMON.TAGS}
           </h3>
           <div className='flex flex-wrap gap-1.5'>
             {tagOptions.slice(0, 15).map(tag => (
               <SmartLink key={tag.name} href={`/tag/${encodeURIComponent(tag.name)}`}>
-                <span className='inline-block border-2 border-[#0284c7] rounded-sm shadow-[1px_1px_0px_0px_#0284c7] px-2 py-0.5 text-xs font-black uppercase tracking-wider text-[#0284c7] bg-[#faf8f5] dark:bg-slate-700 hover:bg-[#fde68a] transition-colors'>
+                <span className='inline-block border-2 border-[#1e3a8a] rounded-sm shadow-[1px_1px_0px_0px_#1e3a8a] px-2 py-0.5 text-xs font-black uppercase tracking-wider text-[#1e3a8a] bg-[#ffffff] dark:bg-slate-700 hover:bg-[#fde68a] transition-colors'>
                   {tag.name}
                 </span>
               </SmartLink>
@@ -65,14 +65,14 @@ export default function SideBar(props) {
       <Uptime />
 
       {latestPosts?.length > 0 && (
-        <div className='border-2 border-[#0284c7] rounded-sm shadow-[3px_3px_0px_0px_#0284c7] bg-[#faf8f5] dark:bg-slate-800 p-4'>
-          <h3 className='font-black text-xs text-[#0284c7] uppercase tracking-wider mb-3 border-b-2 border-[#fde68a] pb-2'>
+        <div className='border-2 border-[#1e3a8a] rounded-sm shadow-[3px_3px_0px_0px_#1e3a8a] bg-[#ffffff] dark:bg-slate-800 p-4'>
+          <h3 className='font-black text-xs text-[#1e3a8a] uppercase tracking-wider mb-3 border-b-2 border-[#fde68a] pb-2'>
             {locale.COMMON.LATEST_POSTS}
           </h3>
           <div className='space-y-1'>
             {latestPosts.slice(0, 5).map(p => (
               <SmartLink key={p.id} href={`/${p.slug}`} className='no-underline'>
-                <div className='text-xs font-extrabold text-slate-600 dark:text-slate-400 hover:text-[#0284c7] py-1 truncate transition-colors'>
+                <div className='text-xs font-extrabold text-slate-600 dark:text-slate-400 hover:text-[#1e3a8a] py-1 truncate transition-colors'>
                   {p.title}
                 </div>
               </SmartLink>

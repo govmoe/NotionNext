@@ -13,7 +13,7 @@ export default function Header(props) {
   return (
     <div>
       <SmartLink href='/' className='no-underline hover:opacity-80 transition-opacity'>
-        <h1 className='text-4xl font-black text-[#0284c7] uppercase tracking-tight'>
+        <h1 className='text-4xl font-black text-[#1e3a8a] uppercase tracking-tight'>
           {siteConfig('TITLE')}
         </h1>
       </SmartLink>

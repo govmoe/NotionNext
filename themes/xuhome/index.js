@@ -37,7 +37,7 @@ const LayoutBase = props => {
   const bgImage = siteConfig('XUHOME_BG_IMAGE', null, CONFIG)
 
   return (
-    <div id='theme-xuhome' className='min-h-screen bg-[#faf8f5] dark:bg-slate-900 text-slate-900 dark:text-slate-100'>
+    <div id='theme-xuhome' className='min-h-screen bg-[#ffffff] dark:bg-slate-900 text-slate-900 dark:text-slate-100'>
       <Style />
 
       {bgImage && (
@@ -100,12 +100,12 @@ const LayoutPostList = props => {
   return (
     <div id='posts-wrapper'>
       {category && (
-        <div className='inline-block border-2 border-[#0284c7] rounded-sm shadow-[2px_2px_0px_0px_#0284c7] bg-[#fde68a] px-3 py-1 mb-6 font-black text-xs uppercase tracking-wider text-[#0284c7]'>
+        <div className='inline-block border-2 border-[#1e3a8a] rounded-sm shadow-[2px_2px_0px_0px_#1e3a8a] bg-[#fde68a] px-3 py-1 mb-6 font-black text-xs uppercase tracking-wider text-[#1e3a8a]'>
           {category}
         </div>
       )}
       {tag && (
-        <div className='inline-block border-2 border-[#0284c7] rounded-sm shadow-[2px_2px_0px_0px_#0284c7] bg-[#fde68a] px-3 py-1 mb-6 font-black text-xs uppercase tracking-wider text-[#0284c7]'>
+        <div className='inline-block border-2 border-[#1e3a8a] rounded-sm shadow-[2px_2px_0px_0px_#1e3a8a] bg-[#fde68a] px-3 py-1 mb-6 font-black text-xs uppercase tracking-wider text-[#1e3a8a]'>
           #{tag}
         </div>
       )}
@@ -129,7 +129,7 @@ const LayoutSearch = props => {
         search: keyword,
         target: {
           element: 'span',
-          className: 'bg-[#fde68a] text-[#0284c7] font-black px-1 rounded-sm'
+          className: 'bg-[#fde68a] text-[#1e3a8a] font-black px-1 rounded-sm'
         }
       })
     }
@@ -169,7 +169,7 @@ const LayoutSlug = props => {
           {post?.pageCover && (
             <div className='w-full mb-8'>
               <div
-                className='w-full h-48 md:h-64 bg-cover bg-center rounded-sm border-[3px] border-[#0284c7] shadow-[4px_4px_0px_0px_#0284c7]'
+                className='w-full h-48 md:h-64 bg-cover bg-center rounded-sm border-[3px] border-[#1e3a8a] shadow-[4px_4px_0px_0px_#1e3a8a]'
                 style={{ backgroundImage: `url(${post.pageCover})` }}
               />
             </div>
@@ -177,7 +177,7 @@ const LayoutSlug = props => {
 
           <ArticleInfo post={post} />
 
-          <div id='article-wrapper' className='border-2 border-[#0284c7] rounded-sm shadow-[4px_4px_0px_0px_#0284c7] bg-[#faf8f5] dark:bg-slate-800 p-6 md:p-10 mt-6'>
+          <div id='article-wrapper' className='border-2 border-[#1e3a8a] rounded-sm shadow-[4px_4px_0px_0px_#1e3a8a] bg-[#ffffff] dark:bg-slate-800 p-6 md:p-10 mt-6'>
             <NotionPage post={post} />
           </div>
 
@@ -223,9 +223,9 @@ const Layout404 = props => {
   return (
     <div className='flex items-center justify-center min-h-[50vh] py-20'>
       <div className='text-center'>
-        <div className='text-8xl font-black text-[#0284c7] mb-4' style={{ textShadow: '4px 4px 0 #fde68a' }}>404</div>
-        <div className='border-2 border-[#0284c7] rounded-sm shadow-[2px_2px_0px_0px_#0284c7] bg-[#faf8f5] dark:bg-slate-800 px-6 py-3 inline-block'>
-          <span className='font-black uppercase tracking-wider text-sm text-[#0284c7]'>Page not found</span>
+        <div className='text-8xl font-black text-[#1e3a8a] mb-4' style={{ textShadow: '4px 4px 0 #fde68a' }}>404</div>
+        <div className='border-2 border-[#1e3a8a] rounded-sm shadow-[2px_2px_0px_0px_#1e3a8a] bg-[#ffffff] dark:bg-slate-800 px-6 py-3 inline-block'>
+          <span className='font-black uppercase tracking-wider text-sm text-[#1e3a8a]'>Page not found</span>
         </div>
       </div>
     </div>
@@ -239,8 +239,8 @@ const LayoutCategoryIndex = props => {
     <div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
       {categoryOptions?.map(category => (
         <SmartLink key={category.name} href={`/category/${category.name}`} passHref legacyBehavior>
-          <div className='border-2 border-[#0284c7] rounded-sm shadow-[4px_4px_0px_0px_#0284c7] bg-[#faf8f5] dark:bg-slate-800 p-5 hover:-translate-y-0.5 hover:shadow-[6px_6px_0px_0px_#0284c7] transition-all cursor-pointer group'>
-            <div className='font-black text-lg text-[#0284c7] group-hover:text-[#0ea5e9] transition-colors uppercase tracking-wider'>
+          <div className='border-2 border-[#1e3a8a] rounded-sm shadow-[4px_4px_0px_0px_#1e3a8a] bg-[#ffffff] dark:bg-slate-800 p-5 hover:-translate-y-0.5 hover:shadow-[6px_6px_0px_0px_#1e3a8a] transition-all cursor-pointer group'>
+            <div className='font-black text-lg text-[#1e3a8a] group-hover:text-[#1d4ed8] transition-colors uppercase tracking-wider'>
               {category.name}
             </div>
             <div className='font-extrabold text-xs text-slate-500 dark:text-slate-400 mt-2 tabular-nums'>
@@ -260,7 +260,7 @@ const LayoutTagIndex = props => {
     <div className='flex flex-wrap gap-3'>
       {tagOptions.map(tag => (
         <SmartLink key={tag.name} href={`/tag/${encodeURIComponent(tag.name)}`} passHref>
-          <span className='inline-flex items-center border-2 border-[#0284c7] rounded-sm shadow-[2px_2px_0px_0px_#0284c7] bg-[#faf8f5] dark:bg-slate-800 hover:bg-[#fde68a] px-4 py-2 font-black text-sm text-[#0284c7] uppercase tracking-wider transition-all cursor-pointer active:translate-x-0.5 active:translate-y-0.5 active:shadow-none'>
+          <span className='inline-flex items-center border-2 border-[#1e3a8a] rounded-sm shadow-[2px_2px_0px_0px_#1e3a8a] bg-[#ffffff] dark:bg-slate-800 hover:bg-[#fde68a] px-4 py-2 font-black text-sm text-[#1e3a8a] uppercase tracking-wider transition-all cursor-pointer active:translate-x-0.5 active:translate-y-0.5 active:shadow-none'>
             {tag.name}
             {tag.count ? <span className='ml-2 text-xs opacity-70'>{tag.count}</span> : ''}
           </span>
