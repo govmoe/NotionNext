@@ -1,5 +1,4 @@
 import { siteConfig } from '@/lib/config'
-import SmartLink from '@/components/SmartLink'
 import CONFIG from '../config'
 import Typewriter from './Typewriter'
 
@@ -8,8 +7,6 @@ export default function HeroSection(props) {
   const heroTextsRaw = siteConfig('XUHOME_HERO_TEXTS', [], CONFIG)
   const heroTexts = Array.isArray(heroTextsRaw) ? heroTextsRaw : typeof heroTextsRaw === 'string' ? heroTextsRaw.split('|').map(s => s.trim()).filter(Boolean) : []
   const heroTitle = siteConfig('XUHOME_HERO_TITLE', '', CONFIG) || siteConfig('TITLE')
-  const ctaText = siteConfig('XUHOME_HERO_CTA_TEXT', '', CONFIG)
-  const ctaLink = siteConfig('XUHOME_HERO_CTA_LINK', '/about', CONFIG)
   const typeSpeed = siteConfig('XUHOME_HERO_TYPE_SPEED', 80, CONFIG)
   const deleteSpeed = siteConfig('XUHOME_HERO_DELETE_SPEED', 40, CONFIG)
   const typePause = siteConfig('XUHOME_HERO_TYPE_PAUSE', 2000, CONFIG)
@@ -38,16 +35,6 @@ export default function HeroSection(props) {
         <p className='text-base font-semibold leading-relaxed max-w-2xl' style={{ color: bioColor }}>
           {heroBio}
         </p>
-      )}
-
-      {ctaText && (
-        <div className='mt-4 flex flex-wrap gap-2'>
-          <SmartLink href={ctaLink} className='no-underline'>
-            <span className='inline-block border-2 rounded-sm shadow-[2px_2px_0px_0px_#0284c7] bg-[#fde68a] px-4 py-2 font-black text-xs uppercase tracking-wider hover:bg-[#0ea5e9] hover:text-white active:translate-x-0.5 active:translate-y-0.5 active:shadow-none transition-all' style={{ borderColor: titleColor, color: titleColor }}>
-              {ctaText} {'\u2192'}
-            </span>
-          </SmartLink>
-        </div>
       )}
 
       <div className='mt-6 border-b-[3px]' style={{ borderColor: titleColor }} />
