@@ -35,6 +35,13 @@ const Style = () => {
        * FONTS
        * ======================================== */
       @font-face {
+        font-family: 'ClaudeCustomFont';
+        src: url('https://file.devhub.eu.org/file/font/0BuUers7.ttf') format('truetype');
+        font-weight: 400;
+        font-style: normal;
+        font-display: swap;
+      }
+      @font-face {
         font-family: 'Anthropic Serif Display';
         src: url('/themes/claude/fonts/AnthropicSerif-Display-Regular-Static.otf') format('opentype');
         font-weight: 400;
@@ -162,8 +169,8 @@ const Style = () => {
         --claude-badge-bg: rgb(246, 248, 250);
         --claude-badge-border: rgb(255, 255, 255);
         --claude-subpage-bg-light: rgb(253 253 247);
-        --claude-heading-font: 'Anthropic Serif Display', Georgia, 'Times New Roman', serif;
-        --claude-body-font: 'Anthropic Sans Text', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+        --claude-heading-font: 'Anthropic Serif Display', 'ClaudeCustomFont', Georgia, 'Times New Roman', serif;
+        --claude-body-font: 'ClaudeCustomFont', 'Anthropic Sans Text', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
         --font-jetbrains-mono: "JetBrains Mono", "JetBrains Mono Fallback", SF Mono, SFMono-Regular, Menlo, Monaco, Cascadia Mono, Segoe UI Mono, Roboto Mono, Oxygen Mono, Ubuntu Monospace, Source Code Pro, Fira Mono, Droid Sans Mono, Consolas, Courier New, monospace;
         --claude-mono-font: var(--font-jetbrains-mono), ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
         --claude-terminal-bg: #ffffff;
