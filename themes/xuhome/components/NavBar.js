@@ -20,10 +20,10 @@ export default function NavBar(props) {
   const active = href => href === '/' ? path === '/' : path.startsWith(href)
 
   return (
-    <header className='top-0 z-[100] bg-white dark:bg-slate-800 border-b-4 border-[#0f172a] px-4 py-2 shadow-[0px_4px_0px_0px_rgba(2,132,199,0.2)]'>
+    <header className='top-0 z-[100] bg-white dark:bg-slate-800 border-b-4 border-[#0284c7] px-4 py-2 shadow-[0px_4px_0px_0px_rgba(2,132,199,0.2)]'>
       <div className='max-w-6xl mx-auto flex flex-wrap items-center gap-2'>
-        <SmartLink href='/' className='flex items-center gap-2 text-[#0f172a] hover:opacity-80 transition-opacity shrink-0 mr-4 no-underline'>
-          <span className='w-8 h-8 flex items-center justify-center bg-[#f59e0b] border-2 border-[#0f172a] font-black text-lg transform -skew-x-12 shadow-[2px_2px_0px_0px_#0f172a]'>
+        <SmartLink href='/' className='flex items-center gap-2 text-[#0284c7] hover:opacity-80 transition-opacity shrink-0 mr-4 no-underline'>
+          <span className='w-8 h-8 flex items-center justify-center bg-[#fde68a] border-2 border-[#0284c7] font-black text-lg transform -skew-x-12 shadow-[2px_2px_0px_0px_#0284c7]'>
             <span className='transform skew-x-12'>{siteConfig('TITLE')?.charAt(0) || 'X'}</span>
           </span>
           <span className='font-black uppercase tracking-widest text-sm hidden sm:inline'>{siteConfig('TITLE')}</span>
@@ -32,10 +32,10 @@ export default function NavBar(props) {
         <nav className='flex flex-wrap items-center gap-1.5'>
           {links.map(link => (
             <SmartLink key={link.href} href={link.href} className='no-underline'>
-              <span className={`inline-block px-2.5 py-1 border-2 border-[#0f172a] rounded-sm font-black uppercase text-xs tracking-wider transition-all cursor-pointer select-none shadow-[2px_2px_0px_0px_#0f172a] active:translate-x-0.5 active:translate-y-0.5 active:shadow-none ${
+              <span className={`inline-block px-2.5 py-1 border-2 border-[#0284c7] rounded-sm font-black uppercase text-xs tracking-wider transition-all cursor-pointer select-none shadow-[2px_2px_0px_0px_#0284c7] active:translate-x-0.5 active:translate-y-0.5 active:shadow-none ${
                 active(link.href)
-                  ? 'bg-[#1e293b] text-white'
-                  : 'bg-[#ffffff] dark:bg-slate-700 text-[#0f172a] hover:bg-[#1e293b] hover:text-white'
+                  ? 'bg-[#0ea5e9] text-white'
+                  : 'bg-[#ffffff] dark:bg-slate-700 text-[#0284c7] hover:bg-[#0ea5e9] hover:text-white'
               }`}>
                 {link.label}
               </span>

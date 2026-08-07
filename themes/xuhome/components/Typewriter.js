@@ -53,7 +53,7 @@ export default function Typewriter({ texts, speed = 80, deleteSpeed = 40, pause 
     <span className='inline'>
       {displayed}
       <span
-        className='inline-block w-[3px] h-[1em] bg-[#0f172a] ml-0.5 align-middle'
+        className='inline-block w-[3px] h-[1em] bg-[#0284c7] ml-0.5 align-middle'
         style={{ opacity: showCursor ? 1 : 0, transition: 'opacity 80ms' }}
       />
     </span>
