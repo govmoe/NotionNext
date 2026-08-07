@@ -27,8 +27,8 @@ export default function Uptime() {
   if (!enabled || !since || !time) return null
 
   return (
-    <div className='border-2 border-[#1e3a8a] rounded-sm shadow-[3px_3px_0px_0px_#1e3a8a] bg-[#ffffff] dark:bg-slate-800 p-4'>
-      <h3 className='font-black text-xs text-[#1e3a8a] uppercase tracking-wider mb-3 border-b-2 border-[#fde68a] pb-2'>
+    <div className='border-2 border-[#0f172a] rounded-sm shadow-[3px_3px_0px_0px_#0f172a] bg-[#ffffff] dark:bg-slate-800 p-4'>
+      <h3 className='font-black text-xs text-[#0f172a] uppercase tracking-wider mb-3 border-b-2 border-[#f59e0b] pb-2'>
         {title}
       </h3>
 
@@ -39,11 +39,11 @@ export default function Uptime() {
           { value: time.minutes, label: 'M' },
           { value: time.seconds, label: 'S' }
         ].map((item, i) => (
-          <div key={i} className='border-2 border-[#1e3a8a] rounded-sm shadow-[1px_1px_0px_0px_#1e3a8a] bg-[#fde68a] py-2'>
-            <div className='text-xl font-black text-[#1e3a8a] tabular-nums leading-none'>
+          <div key={i} className='border-2 border-[#0f172a] rounded-sm shadow-[1px_1px_0px_0px_#0f172a] bg-[#f59e0b] py-2'>
+            <div className='text-xl font-black text-[#0f172a] tabular-nums leading-none'>
               {String(item.value).padStart(2, '0')}
             </div>
-            <div className='text-[10px] font-black text-[#1e3a8a]/60 uppercase mt-0.5'>
+            <div className='text-[10px] font-black text-[#0f172a]/60 uppercase mt-0.5'>
               {item.label}
             </div>
           </div>

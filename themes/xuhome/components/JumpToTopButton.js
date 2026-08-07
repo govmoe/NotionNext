@@ -14,7 +14,7 @@ export default function JumpToTopButton() {
   return (
     <button
       onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-      className='w-10 h-10 flex items-center justify-center border-2 border-[#1e3a8a] rounded-sm shadow-[3px_3px_0px_0px_#1e3a8a] bg-[#fde68a] font-black text-lg text-[#1e3a8a] hover:bg-[#1d4ed8] hover:text-white active:translate-x-0.5 active:translate-y-0.5 active:shadow-none transition-all'
+      className='w-10 h-10 flex items-center justify-center border-2 border-[#0f172a] rounded-sm shadow-[3px_3px_0px_0px_#0f172a] bg-[#f59e0b] font-black text-lg text-[#0f172a] hover:bg-[#1e293b] hover:text-white active:translate-x-0.5 active:translate-y-0.5 active:shadow-none transition-all'
       aria-label='Back to top'>
       {'\u2191'}
     </button>
