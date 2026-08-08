@@ -9,6 +9,7 @@ export default function SideBar(props) {
   const { categoryOptions, tagOptions, latestPosts, post, notice } = props
   const { locale } = useGlobal()
   const router = useRouter()
+  const currentKeyword = router.query.keyword || ''
 
   const handleSearch = e => {
     if (e.key === 'Enter' && e.target.value) {
@@ -25,8 +26,10 @@ export default function SideBar(props) {
           {locale.NAV.SEARCH}
         </h3>
         <input
+          key={router.asPath}
           type='text'
           placeholder='Search...'
+          defaultValue={currentKeyword}
           onKeyDown={handleSearch}
           className='w-full border-[3px] border-[#0284c7] rounded-sm shadow-[2px_2px_0px_0px_#0284c7] px-3 py-2 font-extrabold text-sm outline-none bg-white dark:bg-slate-700 text-slate-900 dark:text-slate-100 placeholder:text-slate-400'
         />

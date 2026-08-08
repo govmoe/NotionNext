@@ -4,6 +4,7 @@ import SmartLink from '@/components/SmartLink'
 import { useRouter } from 'next/router'
 import CONFIG from '../config'
 import MenuItemDrop from './MenuItemDrop'
+import DarkModeToggle from './DarkModeToggle'
 
 export default function NavBar(props) {
   const { categoryOptions, tagOptions, customNav, customMenu } = props
@@ -53,6 +54,10 @@ export default function NavBar(props) {
             <MenuItemDrop key={link.id || link.name} link={link} />
           ))}
         </nav>
+
+        <div className='ml-auto'>
+          <DarkModeToggle />
+        </div>
       </div>
     </header>
   )

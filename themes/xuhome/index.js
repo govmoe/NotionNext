@@ -46,7 +46,7 @@ const LayoutBase = props => {
     } : {}}>
       <Style />
 
-      <div className='fixed inset-0 bg-[#faf8f5]/85 dark:bg-slate-900/85 z-0 pointer-events-none' />
+      <div className='fixed inset-0 bg-[#faf8f5]/55 dark:bg-slate-900/85 z-0 pointer-events-none' />
 
       <div className='relative z-10'>
         <NavBar {...props} />
@@ -138,7 +138,7 @@ const LayoutSearch = props => {
   return (
     <>
       <div className='mb-8'>
-        <SearchInput {...props} />
+        <SearchInput key={keyword} {...props} />
       </div>
       <LayoutPostList {...props} />
     </>
