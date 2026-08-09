@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { siteConfig } from '@/lib/config'
 import { useGlobal } from '@/lib/global'
 import SmartLink from '@/components/SmartLink'
@@ -5,12 +6,14 @@ import { useRouter } from 'next/router'
 import CONFIG from '../config'
 import MenuItemDrop from './MenuItemDrop'
 import DarkModeToggle from './DarkModeToggle'
+import MobileMenu from './MobileMenu'
 
 export default function NavBar(props) {
   const { categoryOptions, tagOptions, customNav, customMenu } = props
   const { locale } = useGlobal()
   const router = useRouter()
   const path = router.asPath?.split('?')[0] || '/'
+  const [mobileOpen, setMobileOpen] = useState(false)
 
   const defaultLinks = [
     { id: 1, name: 'Home', href: '/', show: true },
@@ -27,38 +30,41 @@ export default function NavBar(props) {
     links = customMenu
   }
 
-  const active = href => {
-    if (!href) return false
-    return href === '/' ? path === '/' : path.startsWith(href)
-  }
-
-  const linkActive = link => {
-    if (link.subMenus?.length > 0) {
-      return link.subMenus.some(sub => active(sub.href || sub.url))
-    }
-    return active(link.href || link.url)
-  }
-
   return (
-    <header className='top-0 z-[100] bg-white dark:bg-slate-800 border-b-4 border-[#0284c7] px-4 py-2 shadow-[0px_4px_0px_0px_rgba(2,132,199,0.2)]'>
-      <div className='max-w-6xl mx-auto flex flex-wrap items-center gap-2'>
-        <SmartLink href='/' className='flex items-center gap-2 text-[#0284c7] hover:opacity-80 transition-opacity shrink-0 mr-4 no-underline'>
+    <header className='sticky top-0 z-50 bg-white dark:bg-slate-800 border-b-4 border-[#0284c7] px-4 py-2 shadow-[0px_4px_0px_0px_rgba(2,132,199,0.2)] relative'>
+      <div className='max-w-6xl mx-auto flex items-center gap-2'>
+        <SmartLink href='/' className='flex items-center gap-2 text-[#0284c7] hover:opacity-80 transition-opacity shrink-0 no-underline'>
           <span className='w-8 h-8 flex items-center justify-center bg-[#fde68a] border-2 border-[#0284c7] font-black text-lg transform -skew-x-12 shadow-[2px_2px_0px_0px_#0284c7]'>
             <span className='transform skew-x-12'>{siteConfig('TITLE')?.charAt(0) || 'X'}</span>
           </span>
           <span className='font-black uppercase tracking-widest text-sm hidden sm:inline'>{siteConfig('TITLE')}</span>
         </SmartLink>
 
-        <nav className='flex flex-wrap items-center gap-1.5'>
+        <nav className='hidden sm:flex flex-wrap items-center gap-1.5'>
           {links.map(link => (
             <MenuItemDrop key={link.id || link.name} link={link} />
           ))}
         </nav>
 
-        <div className='ml-auto'>
+        <div className='hidden sm:block ml-auto'>
           <DarkModeToggle />
         </div>
+
+        <div className='flex sm:hidden items-center gap-1.5 ml-auto'>
+          <DarkModeToggle />
+          <button
+            onClick={() => setMobileOpen(!mobileOpen)}
+            className='w-8 h-8 flex items-center justify-center border-2 border-[#0284c7] rounded-sm font-black text-sm shadow-[2px_2px_0px_0px_#0284c7] bg-[#ffffff] dark:bg-slate-700 text-[#0284c7] hover:bg-[#fde68a] active:translate-x-0.5 active:translate-y-0.5 active:shadow-none transition-all'>
+            <span className={mobileOpen ? 'rotate-90 transition-transform duration-200' : 'transition-transform duration-200'}>
+              {mobileOpen ? '\u2715' : '\u2630'}
+            </span>
+          </button>
+        </div>
       </div>
+
+      {mobileOpen && (
+        <MobileMenu links={links} onClose={() => setMobileOpen(false)} />
+      )}
     </header>
   )
 }
