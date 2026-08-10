@@ -8,6 +8,8 @@ export default function Footer(props) {
         <span>{'\u00A9'} {new Date().getFullYear()} {siteConfig('AUTHOR')}</span>
         <span className='text-slate-500 dark:text-slate-400 font-semibold normal-case tracking-normal'>
           <PoweredBy />
+          <span className='mx-2 text-slate-300 dark:text-slate-600'>|</span>
+          <a href='https://github.com/govmoe/XuHome-Theme' target='_blank' rel='noopener noreferrer' className='text-slate-400 dark:text-slate-500 hover:text-[#0284c7] transition-colors no-underline'>XuHome Theme</a>
         </span>
       </div>
     </footer>

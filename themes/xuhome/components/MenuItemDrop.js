@@ -5,7 +5,7 @@ export default function MenuItemDrop({ link }) {
   const [show, setShow] = useState(false)
   const hasSub = link?.subMenus?.length > 0
 
-  const btnClass = `inline-block px-2.5 py-1 border-2 border-[#0284c7] rounded-sm font-black uppercase text-xs tracking-wider transition-all cursor-pointer select-none shadow-[2px_2px_0px_0px_#0284c7] active:translate-x-0.5 active:translate-y-0.5 active:shadow-none bg-[#ffffff] dark:bg-slate-700 text-[#0284c7] hover:bg-[#0ea5e9] hover:text-white`
+  const btnClass = `inline-block px-2.5 py-1 border-2 border-[#0284c7] rounded-sm font-black uppercase text-xs tracking-wider transition-all cursor-pointer select-none shadow-[2px_2px_0px_0px_#0284c7] active:translate-x-0.5 active:translate-y-0.5 active:shadow-none bg-[#ffffff] dark:bg-slate-700 text-[#0284c7] hover:bg-[#0284c7] hover:text-white`
 
   if (!hasSub) {
     return (
@@ -22,7 +22,7 @@ export default function MenuItemDrop({ link }) {
     <div className='relative'
       onMouseEnter={() => setShow(true)}
       onMouseLeave={() => setShow(false)}>
-      <span className={`${btnClass} ${show ? 'bg-[#0ea5e9] text-white' : ''}`}>
+      <span className={`${btnClass} ${show ? 'bg-[#fde68a]' : ''}`}>
         {link?.icon && <i className={`${link.icon} mr-1`} />}
         {link.name || link.title}
         <svg className={`inline-block w-3 h-3 ml-1 transition-transform ${show ? 'rotate-180' : ''}`} fill='none' viewBox='0 0 24 24' stroke='currentColor' strokeWidth={3}>
