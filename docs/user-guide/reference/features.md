@@ -90,6 +90,7 @@
 | `MUSIC_PLAYER_*` | APlayer / Meting，见 [plugins/music-player.md](../plugins/music-player.md) |
 | `WIDGET_PET` / `WIDGET_PET_LINK` | Live2D 宠物 |
 | `CHATBASE_ID` | Chatbase |
+| `AI_CHAT_*` | OpenAI 兼容 AI 助手，支持 DeepSeek 等模型服务 |
 | `WEB_WHIZ_*` | Webwhiz 机器人 |
 | `DIFY_CHATBOT_*` | Dify 嵌入 |
 | `FACEBOOK_PAGE_*` | Facebook Page / Messenger |
@@ -123,7 +124,7 @@
 | `PRISM_THEME_*` | 高亮主题、深浅切换 |
 | `CODE_MAC_BAR` | Mac 窗口三色点 |
 | `CODE_LINE_NUMBERS` | 行号 |
-| `CODE_COLLAPSE` | 折叠长代码 |
+| `CODE_COLLAPSE` | 折叠长代码，桌面端支持侧栏预览 |
 | `MERMAID_CDN` | Mermaid 图表 |
 
 ## 广告（conf/ad.config.js）
