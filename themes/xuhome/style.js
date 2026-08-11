@@ -8,6 +8,9 @@ const Style = () => {
     body {
       background-color: #faf8f5;
     }
+    html {
+      scroll-behavior: smooth;
+    }
     .dark body {
       background-color: #0f172a;
     }
